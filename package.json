@@ -1,0 +1,11 @@
+{
+  "name": "circle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/conversayShawn/circle_ci.git",
+  "author": "Shawn Harris <shawn.harris3510@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "^12.6.0"
+  }
+}

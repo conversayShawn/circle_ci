@@ -4,5 +4,5 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/run
-      record: true # record results with Cypress Cloud
+      - cypress/run:
+          record: true # record results with Cypress Cloud

@@ -13,7 +13,7 @@ workflows:
           parallelism: 3
           store_artifacts: true # should store artifacts??
 
-        clean_up_videos:
+      - clean_up_videos:
           description: "Clean up videos of passing tests"
           steps:
             - run:

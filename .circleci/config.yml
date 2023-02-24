@@ -11,4 +11,6 @@ workflows:
           record: true # record results with Cypress Cloud
           parallel: true
           parallelism: 3
+          store_artifacts: true # should store artifacts??
+
 

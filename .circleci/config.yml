@@ -13,4 +13,31 @@ workflows:
           parallelism: 3
           store_artifacts: true # should store artifacts??
 
+        clean_up_videos:
+          description: "Clean up videos of passing tests"
+          steps:
+            - run:
+                name: Delete videos of passing tests
+                command: |
+                  #!/usr/bin/env bash
+                  echo Cleaning up videos:
+                  for REPORT in results/*.xml
+                  do
+                    FILE=$(xmllint "${REPORT}" --xpath '//@file')
+                    VIDEO=${FILE/ file=\"cypress\/e2e\/videos}
+                    VIDEO=${VIDEO/.cy.js\"/.cy.js}.mp4
+
+                    if [ "$(xmllint "${REPORT}" --xpath '//@failures>0')" = "true" ]; then
+                      echo "Keeping $VIDEO of a test with failure"
+                      echo -e "New failure encountered in $VIDEO\n" >> cypress/videos/failures.txt
+                    else
+                      echo "Removing $VIDEO of a passed test"
+                      rm -f "$VIDEO"
+                    fi
+                  done
+                when: always
+            - store_artifacts:
+                path: cypress/videos/
+
+
 

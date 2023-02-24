@@ -6,3 +6,6 @@ workflows:
     jobs:
       - cypress/run:
           record: true # record results with Cypress Cloud
+          parallel: true
+          parallelism: 3
+          

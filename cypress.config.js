@@ -1,8 +1,11 @@
 const { defineConfig } = require("cypress");
 // need to install these dependencies
 // npm i lodash del --save-dev
-const _ = require("lodash");
-const del = require("del");
+// const _ = require("lodash");
+// const del = require("del");
+
+import _ from "lodash";
+import del from "del";
 
 module.exports = defineConfig({
   // setupNodeEvents can be defined in either

@@ -17,5 +17,4 @@ module.exports = defineConfig({
       })
     },
   },
-  videoUploadOnPasses: false
 });

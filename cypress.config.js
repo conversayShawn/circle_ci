@@ -4,7 +4,7 @@ const { defineConfig } = require("cypress");
 // const _ = require("lodash");
 // const del = require("del");
 
-import _ from "lodash";
+import {some} from "lodash";
 import del from "del";
 
 module.exports = defineConfig({

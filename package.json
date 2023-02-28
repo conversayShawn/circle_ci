@@ -18,7 +18,7 @@
   "homepage": "https://github.com/conversayShawn/circle_ci#readme",
   "dependencies": {
     "cypress": "^12.7.0",
-    "del": "^7.0.0",
+    "del": "^6.1.1",
     "lodash": "^4.17.21"
   }
 }

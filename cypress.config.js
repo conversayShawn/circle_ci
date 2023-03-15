@@ -5,7 +5,6 @@ const _ = require('lodash')
 const del = require('del')
 
 module.exports = defineConfig({
-  videoUploadOnPasses: false,
   e2e: {
     setupNodeEvents(on, config) {
       // on('after:spec', (spec, results) => {

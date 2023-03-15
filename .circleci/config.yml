@@ -1,10 +1,14 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@3
+  cypress: cypress-io/cypress@2
 workflows:
-  use-my-orb:
+  build:
     jobs:
+      - cypress/install
       - cypress/run:
-          cypress-command: npx cypress run --parallel --record
+          requires:
+            - cypress/install
+          record: true
+          parallel: true
           parallelism: 3
-          
+          store_artifacts: true # should store artifacts

@@ -6,5 +6,6 @@ workflows:
     jobs:
       - cypress/run:
           cypress-command: npx cypress run --parallel --record
+          working-directory: '.'
           parallelism: 3
           

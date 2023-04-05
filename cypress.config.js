@@ -9,11 +9,10 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       on('after:spec', (spec, results) => {
         if (results && results.video) {
-          let arr1 = results.tests
-          // let arr2 = test.attempts
           // Do we have failures for any retry attempts?
-          const failures = arr1.some( () => {
-            return test.attempts.some( { state: 'failed' })
+          const failures = _.some(results.tests, (test) => {
+            console.log(_.some)
+            return _.some(test.attempts, { state: 'failed' })
           })
           if (!failures) {
             // delete the video if the spec passed and no tests retried

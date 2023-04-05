@@ -11,7 +11,7 @@ module.exports = defineConfig({
         if (results && results.video) {
           // Do we have failures for any retry attempts?
           const failures = _.some(results.tests, (test) => {
-            console.log(_.some)
+            console.log(_.some("hello", test.attempts, { state: 'failed' }))
             return _.some(test.attempts, { state: 'failed' })
           })
           if (!failures) {

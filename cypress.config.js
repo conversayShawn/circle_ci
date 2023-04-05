@@ -1,7 +1,4 @@
 const { defineConfig } = require('cypress')
-// need to install these dependencies
-// npm i lodash del --save-dev
-const _ = require('lodash')
 const del = require('del')
 
 module.exports = defineConfig({
@@ -9,14 +6,11 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       on('after:spec', (spec, results) => {
         if (results && results.video) {
-          // Do we have failures for any retry attempts?
-          const failures = _.some(results.tests, (test) => {
-            console.log(_.some("hello", test.attempts, { state: 'failed' }))
-            return _.some(test.attempts, { state: 'failed' })
+          const failures = results.tests.some(test => {
+            return test.attempts.some(attempt => attempt.state === 'failed')
           })
           if (!failures) {
-            // delete the video if the spec passed and no tests retried
-            return del(results.video)
+            del(results.video)
           }
         }
       })

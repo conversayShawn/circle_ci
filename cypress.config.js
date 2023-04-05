@@ -15,7 +15,7 @@ module.exports = defineConfig({
           const failures = _.some(results.tests, (test) => {
             return _.some(test.attempts, { state: 'failed' })
           })
-          if (!failures) {
+          if (failures) {
             // delete the video if the spec passed and no tests retried
             del(results.video)
           }

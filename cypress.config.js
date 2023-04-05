@@ -1,24 +1,24 @@
 const { defineConfig } = require('cypress')
 // need to install these dependencies
 // npm i lodash del --save-dev
-const _ = require('lodash')
+// const _ = require('lodash')
 const del = require('del')
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // on('after:spec', (spec, results) => {
-      //   if (results && results.video) {
-      //     // Do we have failures for any retry attempts?
-      //     const failures = _.some(results.tests, (test) => {
-      //       return _.some(test.attempts, { state: 'failed' })
-      //     })
-      //     if (!failures) {
-      //       // delete the video if the spec passed and no tests retried
-      //       return del(results.video)
-      //     }
-      //   }
-      // })
+      on('after:spec', (spec, results) => {
+        if (results && results.video) {
+          // Do we have failures for any retry attempts?
+          const failures = _.some(results.tests, (test) => {
+            return _.some(test.attempts, { state: 'failed' })
+          })
+          if (!failures) {
+            // delete the video if the spec passed and no tests retried
+            return del(results.video)
+          }
+        }
+      })
     },
   },
 })

@@ -10,8 +10,8 @@ module.exports = defineConfig({
       on('after:spec', (spec, results) => {
         if (results && results.video) {
           // Do we have failures for any retry attempts?
-          const failures = _.some(results.tests, (test) => {
-            return _.some(test.attempts, { state: 'failed' })
+          const failures = results.some(results.tests, (test) => {
+            return results.some(test.attempts, { state: 'failed' })
           })
           if (!failures) {
             // delete the video if the spec passed and no tests retried

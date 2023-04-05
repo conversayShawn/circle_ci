@@ -10,9 +10,9 @@ module.exports = defineConfig({
       on('after:spec', (spec, results) => {
         if (results && results.video) {
           let arr1 = results.tests
-          let arr2 = test.attempts
+          // let arr2 = test.attempts
           // Do we have failures for any retry attempts?
-          const failures = arr1.some( (test) => {
+          const failures = arr1.some( (arr2 = test.attempts) => {
             return arr2.some( { state: 'failed' })
           })
           if (!failures) {

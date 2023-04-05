@@ -1,7 +1,7 @@
 const { defineConfig } = require('cypress')
 // need to install these dependencies
 // npm i lodash del --save-dev
-// const _ = require('lodash')
+const _ = require('lodash')
 const del = require('del')
 
 module.exports = defineConfig({
